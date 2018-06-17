@@ -91,11 +91,11 @@ class CS():
 
     def TerroLed(self):
         print('Team: T')
-        self.showOnScreen("You are playing\n as terror team.")
+        self.showOnScreen("You are playing\n in terro team.")
 
     def CTLed(self):
         print('Team: CT')
-        self.showOnScreen("You are playing\n as CT team.")
+        self.showOnScreen("You are playing\n in CT team.")
 
     def prevInformation(self,event=None):
         self.current_index = (self.current_index - 1) % len(self.model)
