@@ -39,9 +39,11 @@ class CS():
             if content['player'].get('team'):
                 if content['player']['team'] == 'T' and CS.t == False:
                     CS.ct = False
+                    CS.t = True
                     self.TerroLed()
                 elif content['player']['team'] == 'CT' and CS.ct == False:
                     CS.t = False
+                    CS.ct = True
                     self.CTLed()                    
             else:
                 CS.t = False
