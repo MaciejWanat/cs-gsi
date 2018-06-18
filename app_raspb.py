@@ -20,6 +20,8 @@ def api():
 
 class CS():
     isBombPlanted = False
+    t = False
+    ct = False
 
     def __init__(self):
         self.current_index = 0
@@ -35,11 +37,15 @@ class CS():
         if content.get('player'):
             #team
             if content['player'].get('team'):
-                if content['player']['team'] == 'T':
+                if content['player']['team'] == 'T' and CS.t == False:
+                    CS.ct = False
                     self.TerroLed()
-                elif content['player']['team'] == 'CT':
-                    self.CTLed()
+                elif content['player']['team'] == 'CT' and CS.ct == False:
+                    CS.t = False
+                    self.CTLed()                    
             else:
+                CS.t = False
+                CS.ct = False
                 self.NoTeam()
             #name
             self.model.append("Player name:\n" + str(content['player'].get('name', 'Unknown')))
@@ -87,7 +93,6 @@ class CS():
     
     def NoTeam(self):
         print('No team')
-        self.showOnScreen("You are not\n assigned to any team.")
 
     def TerroLed(self):
         print('Team: T')
